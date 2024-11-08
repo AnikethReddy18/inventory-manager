@@ -1,0 +1,16 @@
+:root{
+    color-scheme: dark;
+}
+
+.product{
+    background-color: grey;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+}
+
+.products{
+    display: grid;
+    padding: 2rem;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
