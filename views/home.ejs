@@ -7,10 +7,14 @@
     <title>Inventory Manager</title>
 </head>
 <body>
-    <%- include('partials/addForm') %>
-    <%- include('partials/getForm') %>
-    <a href="/categories">categories</a>
-    <a href="/companies">companies</a>
-    <%- include("./products", {products}) %>
+    <%- include('partials/navigation') %>
+    <div class="content">
+        <div class="forms">
+            <%- include('partials/addForm') %>
+            <%- include('partials/getForm') %>
+        </div>
+
+        <%- include("./products", {products}) %>
+    </div>
 </body>
 </html>
