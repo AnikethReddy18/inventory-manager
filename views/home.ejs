@@ -8,12 +8,9 @@
 </head>
 <body>
     <%- include('partials/addForm') %>
+    <%- include('partials/getForm') %>
     <a href="/categories">categories</a>
     <a href="/companies">companies</a>
-    <div class="products">
-        <% products.forEach((product)=>{ %>
-            <%- include('partials/product', {product}); %>
-        <% }) %>
-    </div>
+    <%- include("./products", {products}) %>
 </body>
 </html>

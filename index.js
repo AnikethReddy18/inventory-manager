@@ -3,7 +3,7 @@ import path from "path";
 import { fileURLToPath } from 'url';
 import companyRouter from "./routers/companyRouter.js"
 import categoryRouter from "./routers/categoryRouter.js"
-import { getProducts, addProduct } from "./db/queries.js";
+import { getProducts, addProduct, getProductsByQuery, deleteProduct } from "./db/queries.js";
 
 
 const app = express();
@@ -19,12 +19,19 @@ app.get("/", (req, res)=>{
 })
 
 app.use("/companies", companyRouter);
-app.use("/categories", categoryRouter)
+app.use("/categories", categoryRouter);
 
 app.post("/newProduct", (req, res)=>{
     addProduct(req.body).then(()=>res.redirect("/"))
 })
 
+app.post("/delete", (req, res)=>{
+    deleteProduct(req.body.id).then(()=>res.redirect("/"))
+})
+
+app.get("/getProducts", (req, res)=>{
+    getProductsByQuery(req.query.name, req.query.company, req.query.category).then((products)=>res.render("products", {products}))
+})
 
 app.listen(PORT, ()=>{
     console.log("Server Live At: http://localhost:" + PORT)

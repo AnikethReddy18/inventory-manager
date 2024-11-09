@@ -8,7 +8,7 @@ router.get("/", (req, res)=>{
 })
 
 router.get("/:category", (req, res)=>{
-    getProductsByCategory(req.params.category).then((products)=>res.render("home", {products}))
+    getProductsByCategory(req.params.category).then((products)=>res.render("products", {products}))
 })
 
 export default router;
